@@ -1,0 +1,26 @@
+﻿using System;
+using System.IO;
+using Formular;
+using Ninject;
+
+namespace FormularFactory
+{
+    public class FormFactory : IFormFactory
+    {
+        [Inject]
+        public IPageFactory PageFactory { get; set; }
+
+        public IForm CreateForm(StringReader input)
+        {
+            string[] line = input.ReadLine().Split();
+            IForm form = new Form();
+            form.Name = line[0];
+            for (int i = 0; i < Convert.ToInt16(line[1]); i++)
+            {
+                form.Pages.Add(PageFactory.CreatePage(input));
+            }
+
+            return form;
+        }
+    }
+}
