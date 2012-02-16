@@ -1,10 +1,6 @@
-using System.IO;
-using Formular;
-
 namespace FormularFactory
 {
-    public interface IPageFactory
+    public interface IPageFactory : IBaseFactory
     {
-        IPage CreatePage(StringReader input);
     }
 }

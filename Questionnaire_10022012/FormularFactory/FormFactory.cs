@@ -1,26 +1,14 @@
-﻿using System;
-using System.IO;
-using Formular;
-using Ninject;
+﻿using Formular;
 
 namespace FormularFactory
 {
-    public class FormFactory : IFormFactory
+    public class FormFactory : BaseFactory<Form>, IFormFactory
     {
-        [Inject]
-        public IPageFactory PageFactory { get; set; }
+        public override sealed IBaseFactory ChildFactory { get; set; }
 
-        public IForm CreateForm(StringReader input)
+        public FormFactory(IPageFactory pageFactory)
         {
-            string[] line = input.ReadLine().Split();
-            IForm form = new Form();
-            form.Name = line[0];
-            for (int i = 0; i < Convert.ToInt16(line[1]); i++)
-            {
-                form.Pages.Add(PageFactory.CreatePage(input));
-            }
-
-            return form;
+            ChildFactory = pageFactory;
         }
     }
 }

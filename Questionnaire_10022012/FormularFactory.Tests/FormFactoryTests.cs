@@ -13,7 +13,7 @@ namespace FormularFactory.Tests
         {
             FormFactory formFactory = new FormFactory();
 
-            var form = formFactory.CreateForm(new StringReader("Formular 0"));
+            var form = formFactory.Create(new StringReader("Formular 0"));
 
             Assert.IsInstanceOf(typeof(Form), form);
             Assert.AreEqual("Formular", form.Name);
@@ -23,12 +23,12 @@ namespace FormularFactory.Tests
         public void CreateForm_WhenHasPages_WillSetTheListOfPages()
         {
             Mock<IPageFactory> mockPage = new Mock<IPageFactory>();
-            FormFactory formFactory = new FormFactory { PageFactory = mockPage.Object };
+            FormFactory formFactory = new FormFactory { ChildFactory = mockPage.Object };
 
-            var form = formFactory.CreateForm(new StringReader(@"Form 1
+            var form = formFactory.Create(new StringReader(@"Form 1
 Page 0"));
 
-            Assert.AreEqual(1, form.Pages.Count);
+            Assert.AreEqual(1, form.Items.Count);
         }
     }
 }

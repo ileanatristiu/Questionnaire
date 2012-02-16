@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseFactory.cs" />
     <Compile Include="FormFactory.cs" />
     <Compile Include="IFormFactory.cs" />
     <Compile Include="IPageFactory.cs" />

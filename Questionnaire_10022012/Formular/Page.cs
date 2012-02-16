@@ -1,16 +1,6 @@
-﻿using System.Collections.Generic;
-
-namespace Formular
+﻿namespace Formular
 {
-    public class Page : IPage
+    public class Page : Base
     {
-        public string Name { get; set; }
-
-        public List<ISection> Sections { get; set; }
-
-        public Page()
-        {
-            Sections = new List<ISection>();
-        }
     }
 }

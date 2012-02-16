@@ -13,7 +13,7 @@ namespace FormularFactory.Tests
         {
             PageFactory pageFactory = new PageFactory();
 
-            var page = pageFactory.CreatePage(new StringReader("Page  0"));
+            var page = pageFactory.Create(new StringReader("Page  0"));
 
             Assert.IsInstanceOf(typeof(Page), page);
             Assert.AreEqual("Page", page.Name);
@@ -23,12 +23,12 @@ namespace FormularFactory.Tests
         public void CreatePage_WhenHasSections_WillSetTheListOfSections()
         {
             Mock<ISectionFactory> mockSection = new Mock<ISectionFactory>();
-            PageFactory pageFactory = new PageFactory { SectionFactory = mockSection.Object };
+            PageFactory pageFactory = new PageFactory { ChildFactory = null };
 
-            var page = pageFactory.CreatePage(new StringReader(@"Page 1
+            var page = pageFactory.Create(new StringReader(@"Page 1
 Section 0"));
 
-            Assert.AreEqual(1, page.Sections.Count);
+            Assert.AreEqual(1, page.Items.Count);
         }
     }
 }

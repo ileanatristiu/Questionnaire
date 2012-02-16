@@ -17,9 +17,7 @@ namespace Shell
 
             StringReader stringReader = new StringReader(Resources._in);
 
-            IForm form = formFactory.CreateForm(stringReader);
-
-
+            // IForm form = formFactory.CreateForm(stringReader);
         }
     }
 }

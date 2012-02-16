@@ -1,10 +1,6 @@
-using System.IO;
-using Formular;
-
 namespace FormularFactory
 {
-    public interface IFormFactory
+    public interface IFormFactory : IBaseFactory
     {
-        IForm CreateForm(StringReader input);
     }
 }
