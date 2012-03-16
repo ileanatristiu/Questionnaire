@@ -1,0 +1,11 @@
+Registration 2
+Page1 1
+Sec1 2
+FT Numele
+SC Sex 2 Male Female
+Page2 2
+Sec1 2
+FT ZiCeva
+MC ceva 3 op1 op2 op3
+Sec2 1
+SC optiuni 2 o1 o2
